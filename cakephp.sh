@@ -21,6 +21,10 @@ rpm --import http://www.percona.com/downloads/RPM-GPG-KEY-percona
 yum -y install http://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm
 yum -y install Percona-Server-server-56 Percona-Server-client-56 Percona-Server-shared-56 percona-xtrabackup percona-toolkit
 
+# composer
+curl -s https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+
 ##
 ## Configuration ##
 ##
