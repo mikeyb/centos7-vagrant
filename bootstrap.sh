@@ -13,6 +13,8 @@ systemctl reload nginx.service
 rm -rf /usr/share/nginx/html
 ln -fs /web /usr/share/nginx/html
 mkdir /web
+mount -t vboxsf -o uid=`id -u vagrant`,gid=`getent group www | cut -d: -f3`,dmode=775,fmode=775 web /web
+mount -t vboxsf -o uid=`id -u vagrant`,gid=`id -g www`,dmode=775,fmode=775 web /web
 
 # Get us to latest
 yum upgrade -y
