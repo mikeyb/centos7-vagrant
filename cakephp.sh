@@ -11,7 +11,7 @@ yum -y install yum-priorities
 yum -y install htop git curl vim
 
 # Nginx/php/memcached
-yum -y install nginx php-fpm php-gd php-mysql php-mcrypt php-curl php-pecl-apc php-cli memcached php-pecl-memcache php-xml
+yum -y install nginx php-fpm php-gd php-mysql php-mcrypt php-curl php-pecl-apc php-cli memcached php-pecl-memcache php-xml php-pecl-xdebug
 
 # Percona mysql - dafuq is mariadb
 rpm --import http://www.percona.com/downloads/RPM-GPG-KEY-percona
