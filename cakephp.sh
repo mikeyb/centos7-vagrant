@@ -14,7 +14,7 @@ yum -y install htop git curl vim
 yum -y install  http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
 
 # Nginx/php/memcached
-yum -y install nginx php-fpm php-gd php-mysql php-mcrypt php-curl php-pecl-apcu php-cli memcached php-pecl-memcache php-xml php-pecl-xdebug
+yum -y install nginx php-fpm php-gd php-mysql php-mcrypt php-pecl-apcu php-cli memcached php-pecl-memcache php-xml php-pecl-xdebug
 
 # Percona mysql - dafuq is mariadb
 rpm --import http://www.percona.com/downloads/RPM-GPG-KEY-percona
@@ -123,6 +123,9 @@ mail.add_x_header = On
 
 [SQL]
 sql.safe_mode = Off
+
+[mbstring]
+mbstring.func_overload = 0
 
 [ODBC]
 odbc.allow_persistent = On
@@ -304,40 +307,25 @@ EOF
 # nginx default.conf
 cat > /etc/nginx/conf.d/default.conf <<"EOF"
 server {
-    listen 80 default_server;
-    root /usr/share/nginx/html/app/webroot;
+  listen 80 default_server;
+  server_name _;
+  root /path/to/project/app/webroot;
+  
+  index index.php;
+  try_files $uri $uri/ /index.php?$args;  
 
-    location / {
-    }
+  location ~ \.php$ {
+    try_files $uri =404;
 
-    ##
-    # Not found this on disk? 
-    # Feed to CakePHP for further processing!
-    ##
-    if (!-e $request_filename) {
-        rewrite ^/(.+)$ /index.php?url=$1 last;
-        break;
-    }
+    include fastcgi_params;
+    fastcgi_pass php-fpm-sock;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    fastcgi_intercept_errors on;
+  }
 
-    ##
-    # pass the PHP scripts to FastCGI server 
-    ##
-    location ~ \.php$ {
-        try_files $uri =404;
-        
-        include fastcgi_params;
-        fastcgi_pass php-fpm-sock;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        fastcgi_intercept_errors on;
-    }
-        
-    ##
-    # Deny access to .htaccess files,
-    # git & svn repositories, etc
-    ##
-    location ~ /(\.ht|\.git|\.svn) {
+  location ~ /(\.ht|\.git|\.svn) {
         deny all;
-    }
+  }
 }
 EOF
 
