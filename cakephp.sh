@@ -10,6 +10,9 @@ yum -y install yum-priorities
 # Stuff we like ddddand need
 yum -y install htop git curl vim
 
+# nginx repo
+yum -y install  http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+
 # Nginx/php/memcached
 yum -y install nginx php-fpm php-gd php-mysql php-mcrypt php-curl php-pecl-apc php-cli memcached php-pecl-memcache php-xml php-pecl-xdebug
 
