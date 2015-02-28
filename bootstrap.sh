@@ -12,6 +12,7 @@ systemctl reload nginx.service
 # symlink nginx html docroot to /web
 rm -rf /usr/share/nginx/html
 ln -fs /web /usr/share/nginx/html
+mkdir /web
 
 # Get us to latest
 yum upgrade -y
