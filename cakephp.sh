@@ -5,7 +5,7 @@
 ##
 
 # Yum Priorities
-yum -y install yum-priorities
+yum -y install yum-priorities epel-release
 
 # Stuff we like ddddand need
 yum -y install htop git curl vim
@@ -14,7 +14,7 @@ yum -y install htop git curl vim
 yum -y install  http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
 
 # Nginx/php/memcached
-yum -y install nginx php-fpm php-gd php-mysql php-mcrypt php-curl php-pecl-apc php-cli memcached php-pecl-memcache php-xml php-pecl-xdebug
+yum -y install nginx php-fpm php-gd php-mysql php-mcrypt php-curl php-pecl-apcu php-cli memcached php-pecl-memcache php-xml php-pecl-xdebug
 
 # Percona mysql - dafuq is mariadb
 rpm --import http://www.percona.com/downloads/RPM-GPG-KEY-percona
