@@ -43,12 +43,6 @@ rm -rf /usr/share/nginx/html/*
 # php.ini
 cat > /etc/php.ini <<"EOF"
 [PHP]
-
-;;
-; Created by bootstrap script
-; Copyright 2013 Label305 B.V. All rights reserved.
-;;
-
 engine = On
 short_open_tag = Off
 asp_tags = Off
