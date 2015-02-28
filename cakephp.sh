@@ -483,7 +483,7 @@ EOF
 systemctl enable memcached.service
 systemctl enable php-fpm.service
 systemctl enable nginx.service
-systemclt enable mysqld.service
+systemctl enable mysqld.service
 
 # Start them up now
 systemctl start php-fpm.service
