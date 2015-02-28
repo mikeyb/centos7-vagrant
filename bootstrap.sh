@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Execute Cakephp setup
-curl -s https://raw.githubusercontent.com/mikeyb/centos7-vagrant/master/cakephp.sh | bash
+curl -s https://raw.githubusercontent.com/mikeyb/centos7-vagrant/master/cakephp.sh?token=AACObUMzjVtJvC0oACzWqzPk-Axb4PjVks5U-v4iwA%3D%3D | bash
 
 # Disable sendfile
 # sendfile results in caching problems on VirtualBox
