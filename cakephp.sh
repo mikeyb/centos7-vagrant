@@ -67,8 +67,8 @@ max_execution_time = 30
 max_input_time = 60
 memory_limit = 128M
 
-error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT
-display_errors = Off
+error_reporting = E_ALL
+display_errors = On
 display_startup_errors = Off
 log_errors = On
 log_errors_max_len = 1024
