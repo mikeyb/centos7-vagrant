@@ -499,6 +499,10 @@ EOF
 mysqladmin -u root password 'datpassword'
 
 
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+firewall-cmd --zone=public --add-port=3306/tcp --permanent
+firewall-cmd --reload
+
 chown -R root:www /etc/nginx/conf.d/
 chmod -R g+w /etc/nginx/conf.d/
 
