@@ -309,7 +309,7 @@ cat > /etc/nginx/conf.d/default.conf <<"EOF"
 server {
   listen 80 default_server;
   server_name _;
-  root /path/to/project/app/webroot;
+  root /web/project/app/webroot;
   
   index index.php;
   try_files $uri $uri/ /index.php?$args;  
