@@ -32,6 +32,11 @@ mv composer.phar /usr/local/bin/composer
 # web user
 useradd www -M # setup user
 
+mkdir /web
+chown vagrant:www /web
+mount -t vboxsf -o uid=`id -u vagrant`,gid=`getent group www | cut -d: -f3`,dmode=775,fmode=775 web /web
+mount -t vboxsf -o uid=`id -u vagrant`,gid=`id -g www`,dmode=775,fmode=775 web /web
+
 # memcached
 cat > /etc/sysconfig/memcached <<"EOF"
 PORT="11211"
@@ -497,7 +502,6 @@ EOF
 
 # set mysql root password
 mysqladmin -u root password 'datpassword'
-
 
 firewall-cmd --zone=public --add-port=80/tcp --permanent
 firewall-cmd --zone=public --add-port=3306/tcp --permanent
