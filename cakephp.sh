@@ -507,6 +507,9 @@ firewall-cmd --zone=public --add-port=80/tcp --permanent
 firewall-cmd --zone=public --add-port=3306/tcp --permanent
 firewall-cmd --reload
 
+echo "PATH+=:/web/project/libraries/lithium/console" >> /root/.bash_profile
+
+
 chown -R root:www /etc/nginx/conf.d/
 chmod -R g+w /etc/nginx/conf.d/
 
