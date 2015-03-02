@@ -509,6 +509,8 @@ firewall-cmd --reload
 
 echo "PATH+=:/web/project/libraries/lithium/console" >> /root/.bash_profile
 
+mkdir /var/run/memcached/
+chown memcached:memcached /var/run/memcached/
 
 chown -R root:www /etc/nginx/conf.d/
 chmod -R g+w /etc/nginx/conf.d/
@@ -518,7 +520,3 @@ chmod -R g+w /etc/php.d/
 
 chown -R root:www /etc/php-fpm.d/
 chmod -R g+w /etc/php-fpm.d/
-
-echo ""
-echo ""
-echo "Ship It!"
