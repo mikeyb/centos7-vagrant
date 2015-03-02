@@ -14,7 +14,7 @@ yum -y install htop git curl vim
 yum -y install  http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
 
 # Nginx/php/memcached
-yum -y install nginx php-fpm php-gd php-mysql php-mcrypt php-pecl-apcu php-cli memcached php-pecl-memcache php-xml php-pecl-xdebug
+yum -y install nginx php-fpm php-gd php-mysql php-mcrypt php-pecl-apcu php-cli memcached php-xml php-pecl-xdebug php-pecl-memcached
 
 # Percona mysql - dafuq is mariadb
 rpm --import http://www.percona.com/downloads/RPM-GPG-KEY-percona
