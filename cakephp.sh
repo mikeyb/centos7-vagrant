@@ -468,6 +468,12 @@ slow-query-log                 = 1
 slow-query-log-file            = /var/lib/mysql/mysql-slow.log
 EOF
 
+# disable sendfile - # http://abitwiser.wordpress.com/2011/02/24/virtualbox-hates-sendfile/
+sed -i "s/^.*sendfile on;/sendfile off;/" /etc/nginx/nginx.conf
+
+# disable selinux
+sed -i "s/^SELINUX=permissive/SELINUX=disabled/" /etc/selinux/config
+
 # For autostart on reboot
 systemctl enable memcached.service
 systemctl enable php-fpm.service
