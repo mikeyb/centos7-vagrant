@@ -233,6 +233,9 @@ soap.wsdl_cache_limit = 5
 [ldap]
 ldap.max_links = -1
 
+[xdebug]
+xdebug.max_nesting_level=300
+
 ; Local Variables:
 ; tab-width: 4
 ; End:
