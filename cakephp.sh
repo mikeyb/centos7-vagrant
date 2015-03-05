@@ -511,6 +511,7 @@ firewall-cmd --zone=public --add-port=3306/tcp --permanent
 firewall-cmd --reload
 
 echo "PATH+=:/web/project/libraries/lithium/console" >> /root/.bash_profile
+echo "PATH+=:/web/project/libraries/lithium/console" >> /home/vagrant/.bash_profile
 
 mkdir /var/run/memcached/
 chown memcached:memcached /var/run/memcached/
